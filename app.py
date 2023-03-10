@@ -13,8 +13,24 @@ def index():
         text = request.form["text"]
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{generate_prompt(text)}],
-            temperature=0.6
+            messages=[
+                {generate_system()},
+                {generate_behaviour()},
+                {
+                    generate_translation(
+                        text,
+                        [
+                            "English",
+                            "German",
+                            "Spanish",
+                            "French",
+                            "Japanese",
+                            "Chinese",
+                        ],
+                    )
+                },
+            ],
+            temperature=0.6,
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -22,10 +38,21 @@ def index():
     return render_template("index.html", result=result)
 
 
-def generate_prompt(text):
-    return """ Translate to 
-        English, 
-        Spanish,
-        French, 
-        German,
-        Japanese""".format(text.capitalize())
+def generate_system():
+    return {
+        "role": "system",
+        "content": "You are a super skilled translator who can translate any text to any language.",
+    }
+
+
+def generate_behaviour():
+    return {"role": "assistant", "content": "Shure, I can translate in any language."}
+
+
+def generate_translation(text, languages):
+    return {
+        "role": "user",
+        "content": """ Translate this "{text}" to {languages}""".format(
+            text=text, languages=", ".join(languages)
+        ),
+    }

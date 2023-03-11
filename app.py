@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def index():
     if request.method == "POST":
         text = request.form["text"]
-        languages = request.form["languages"]
+        language = request.form["language"]
 
         system = ChatMessage(
             "system",
@@ -21,8 +21,8 @@ def index():
         behaviour = ChatMessage("assistant", "Shure, I can translate in any language.")
         translation = ChatMessage(
             "user",
-            """ Translate this "{text}" to {languages}""".format(
-                text=text, languages=", ".join(languages)
+            """ Translate this "{text}" to {language}""".format(
+                text=text, language=language)
             ),
         )
 

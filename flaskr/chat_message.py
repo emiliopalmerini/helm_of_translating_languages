@@ -4,8 +4,7 @@ class ChatMessage:
         self.content = c
 
     def to_message(self):
-        return {
-            """ "role": {role}, "content": {content} """.format(
+        return (
+            """ "role": "{role}", "content": "{content}" """.format(
                 role=self.role, content=self.content
-            )
-        }
+            ))

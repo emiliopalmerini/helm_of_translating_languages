@@ -31,15 +31,14 @@ def index():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {system.to_request()},
-                {behaviour.to_request()},
-                {translation.to_request()},
+                {system.to_json()},
+                {behaviour.to_json()},
+                {translation.to_json()},
             ],
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
     result = request.args.get("result")
-    # TODO: handle result
     return render_template("index.html", result=result)
 
 

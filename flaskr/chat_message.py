@@ -3,7 +3,7 @@ class ChatMessage:
         self.role = r
         self.content = c
 
-    def to_request(self):
+    def to_json(self):
         print(
             """{
               "role":{role}, 

@@ -3,11 +3,9 @@ class ChatMessage:
         self.role = r
         self.content = c
 
-    def to_json(self):
-        print(
-            """{
-              "role":{role}, 
-              "content": {content}""".format(
+    def to_message(self):
+        return {
+            """ "role": {role}, "content": {content} """.format(
                 role=self.role, content=self.content
             )
-        )
+        }

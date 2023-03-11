@@ -31,9 +31,9 @@ def index():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {system.to_json()},
-                {behaviour.to_json()},
-                {translation.to_json()},
+                {system.to_message()},
+                {behaviour.to_message()},
+                {translation.to_message()},
             ],
         )
         return redirect(url_for("index", result=response.choices[0].text))

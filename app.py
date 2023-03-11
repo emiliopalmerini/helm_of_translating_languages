@@ -16,22 +16,24 @@ def index():
 
         system = ChatMessage(
             "system",
-            "You are a super skilled translator who can translate any text to any language.",
+            """You are a super skilled translator who can translate any text to {language}.""".format(
+                language=language),
         )
-        behaviour = ChatMessage("assistant", "Shure, I can translate in any language.")
+
+        behaviour = ChatMessage(
+            "assistant", """Shure, I can translate anything to {language}.""".format(language=language))
+
         translation = ChatMessage(
             "user",
             """ Translate this "{text}" to {language}""".format(
                 text=text, language=language)
-            ),
         )
-
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {system.print_to_json()},
-                {behaviour.print_to_json()},
-                {translation.print_to_json()},
+                {system.to_request()},
+                {behaviour.to_request()},
+                {translation.to_request()},
             ],
         )
         return redirect(url_for("index", result=response.choices[0].text))

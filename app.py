@@ -40,23 +40,3 @@ def index():
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
-
-
-# def generate_system():
-#     return {
-#         "role": "system",
-#         "content": "You are a super skilled translator who can translate any text to any language.",
-#     }
-
-
-# def generate_behaviour():
-#     return {"role": "assistant", "content": "Shure, I can translate in any language."}
-
-
-# def generate_translation(text, languages):
-#     return {
-#         "role": "user",
-#         "content": """ Translate this "{text}" to {languages}""".format(
-#             text=text, languages=", ".join(languages)
-#         ),
-#     }

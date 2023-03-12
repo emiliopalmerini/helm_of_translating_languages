@@ -4,7 +4,10 @@ class ChatMessage:
         self.content = c
 
     def to_message(self):
-        return (
-            """ "role": "{role}", "content": "{content}" """.format(
-                role=self.role, content=self.content
-            ))
+        if self.role is None or self.content is None:
+            raise ValueError("role and content cannot be None")
+        else:
+            return (
+                """ "role": "{role}", "content": "{content}" """.format(
+                    role=self.role, content=self.content
+                ))

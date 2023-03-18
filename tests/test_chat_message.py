@@ -34,14 +34,14 @@ def test_ChatMessage_to_message_exception(message):
     with pytest.raises(ValueError):
         message.to_message()
 
-def test_BehaviourMessage_to_message():
-    obj = BehaviourMessage("test_content")
+def test_BehaviorMessage_to_message():
+    obj = BehaviorMessage("test_content")
     assert obj.to_message() == """ "role": "assistant", "content": "test_content" """
 
 
 @pytest.mark.parametrize("message", [
-    BehaviourMessage(None),
-    BehaviourMessage(""),
+    BehaviorMessage(None),
+    BehaviorMessage(""),
 ])
 def test_ChatMessage_to_message_exception(message):
     with pytest.raises(ValueError):

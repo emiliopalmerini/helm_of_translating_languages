@@ -25,7 +25,7 @@ class SystemMessage(ChatMessage):
         self.content = c
 
 
-class BehaviourMessage(ChatMessage):
+class BehaviorMessage(ChatMessage):
     def __init__(self, c):
         self.role = "assistant"
         self.content = c

@@ -14,11 +14,11 @@ def test_generate_system_message():
     assert translator.system_message == 'You are a super skilled translator who can translate any text to English, French, Chinese.'
 
 
-def test_generate_behaviour_message():
+def test_generate_behavior_message():
     translator = generate_translator()
-    translator.generate_behaviour_message()
+    translator.generate_behavior_message()
 
-    assert translator.behaviour_message == 'Shure, I can translate anything to English, French, Chinese.'
+    assert translator.behavior_message == 'Shure, I can translate anything to English, French, Chinese.'
 
 
 def test_generate_translated_message():

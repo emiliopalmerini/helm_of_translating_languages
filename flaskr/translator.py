@@ -28,7 +28,7 @@ class OpenAiTranslator():
         return BehaviorMessage(
             """Shure, I can translate anything to {language}.""".format(language=self.languages))
 
-    def generate_translated_text(self):
+    def generate_translation_message(self):
         return UserMessage(
             """Translate this "{text}" to {language}""".format(
                 text=self.text, language=self.language)
@@ -37,7 +37,7 @@ class OpenAiTranslator():
     def generate_translation(self):
         system = self.generate_system_message()
         behavior = self.generate_behavior_message()
-        translation = self.generate_translated_text()
+        translation = self.generate_translation_message()
         return ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[

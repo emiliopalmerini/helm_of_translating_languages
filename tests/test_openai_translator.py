@@ -21,8 +21,8 @@ def test_generate_behavior_message():
     assert translator.behavior_message == 'Shure, I can translate anything to English, French, Chinese.'
 
 
-def test_generate_translated_message():
+def test_generate_translation_message():
     translator = generate_translator()
-    translator.generate_translated_text()
+    translator.generate_translation_message()
 
     assert translator.translated_message == 'Translate this "Ciao Mondo" to English, French, Chinese.'

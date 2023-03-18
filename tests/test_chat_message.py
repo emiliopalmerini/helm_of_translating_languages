@@ -1,6 +1,5 @@
 import pytest
-from flaskr.chat_message import *
-
+from flaskr.chat_message import ChatMessage, UserMessage, SystemMessage 
 
 def test_ChatMessage_to_message():
     obj = ChatMessage("test_role","test_content")

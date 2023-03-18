@@ -14,7 +14,8 @@ from openai import ChatCompletion
 
 
 class OpenAiTranslator():
-    def __init__(self, text, languages=['en']):
+    def __init__(self, model, text, languages=['en']):
+        self.model = model
         self.text = text
         self.languages = languages
 

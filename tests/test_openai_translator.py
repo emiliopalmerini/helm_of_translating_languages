@@ -4,7 +4,7 @@ from flaskr.translator import OpenAiTranslator
 
 @pytest.fixture
 def generate_translator():
-    return OpenAiTranslator('Ciao Mondo', 'English, Franch, Chinese')
+    return OpenAiTranslator('Ciao Mondo', "", 'English, Franch, Chinese')
 
 
 def test_generate_system_message():

@@ -20,13 +20,13 @@ class OpenAiTranslator():
 
     def generate_system_message(self):
         return SystemMessage(
-            """You are a super skilled translator who can translate any text to {language}.""".format(
+            """You are the best italian to {language} translator.""".format(
                 language=self.language),
         )
 
     def generate_behavior_message(self):
         return BehaviorMessage(
-            """Shure, I can translate anything to {language}.""".format(language=self.language))
+            """I can translate to {language}.""".format(language=self.language))
 
     def generate_translation_message(self):
         return UserMessage(

@@ -12,10 +12,19 @@
   <h3> Helm of Translating language 0.1 </h3>
   <form action="/" method="post">
     <input type="text" name="text" placeholder="Enter verbal component" required />
-    <input type="text" name="language" placeholder = "Enter language" required />
+  <select name="language" required>
+  <option value="">Select language</option>
+  <option value="english">English</option>
+  <option value="french">French</option>
+  <option value="spanish">Spanish</option>
+  <option value="chinese">Chinese</option>
+  <option value="japanese">Japanese</option>
+</select>
+
     <input type="submit" value="Cast Translate Language" />
   </form>
   {% if result %}
-  <div class="result">{{ result }}</div>
-  {% endif %}
+<div class="result">{{ result }}</div>
+{% endif %}
+
 </body>

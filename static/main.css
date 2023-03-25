@@ -61,6 +61,36 @@ input[type="submit"] {
   cursor: pointer;
 }
 .result {
-  font-weight: bold;
-  margin-top: 40px;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  border: 1px solid #d1d5da;
+  color: #24292e;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 16px;
+  white-space: pre-wrap;
+  margin-top: 16px;
+}
+
+select {
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L0 0h10z' fill='%2310a37f'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5em top 50%, 0 0;
+  background-size: 0.5em auto, 100%;
+  font-size: 16px;
+  line-height: 24px;
+  color: #353740;
+}
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.25);
 }

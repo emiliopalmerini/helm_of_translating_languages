@@ -1,9 +1,9 @@
 import pytest
-from flaskr.chat_message import *
+from chat_message import *
 
 
 def test_ChatMessage_to_message():
-    obj = ChatMessage("test_role","test_content")
+    obj = ChatMessage("test_role", "test_content")
     assert obj.to_message() == """ "role": "test_role", "content": "test_content" """
 
 
@@ -15,11 +15,12 @@ def test_ChatMessage_to_message():
     ChatMessage("", None),
     ChatMessage("", "test_content"),
     ChatMessage("test_role", ""),
-    ChatMessage("",""),
+    ChatMessage("", ""),
 ])
 def test_ChatMessage_to_message_exception(message):
     with pytest.raises(ValueError):
         message.to_message()
+
 
 def test_UserMessage_to_message():
     obj = UserMessage("test_content")
@@ -34,6 +35,7 @@ def test_ChatMessage_to_message_exception(message):
     with pytest.raises(ValueError):
         message.to_message()
 
+
 def test_BehaviorMessage_to_message():
     obj = BehaviorMessage("test_content")
     assert obj.to_message() == """ "role": "assistant", "content": "test_content" """
@@ -46,6 +48,7 @@ def test_BehaviorMessage_to_message():
 def test_ChatMessage_to_message_exception(message):
     with pytest.raises(ValueError):
         message.to_message()
+
 
 def test_SystemMessage_to_message():
     obj = SystemMessage("test_content")

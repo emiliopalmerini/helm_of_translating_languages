@@ -5,10 +5,7 @@ class ChatMessage:
 
     def to_message(self):
         if self.role and self.content:
-            return (
-                """ "role": "{role}", "content": "{content}" """.format(
-                    role=self.role, content=self.content
-                ))
+            return [self.role, self.content]
         else:
             raise ValueError("role and content cannot be empty or None")
 

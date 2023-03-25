@@ -27,7 +27,7 @@ body {
   padding-top: 60px;
 }
 .icon {
-  width: 1000px;
+  width: 600px;
 }
 h3 {
   font-size: 32px;
@@ -70,7 +70,8 @@ input[type="submit"] {
   line-height: 20px;
   padding: 16px;
   white-space: pre-wrap;
-  margin-top: 16px;
+  margin: 30px;
+  width: 600px;
 }
 
 select {
@@ -94,3 +95,4 @@ select:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.25);
 }
+

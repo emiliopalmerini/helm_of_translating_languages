@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <head>
-  <title>Helm of Translating language</title>
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='logo_corvi.PNG') }}"
-  />
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <title>Helm of Translating language</title>
+    <link
+            rel="shortcut icon"
+            href="{{ url_for('static', filename='logo_corvi.PNG') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
 </head>
 
 <body>
-  <h3> Helm of Translating language 0.1 </h3>
-  <form action="/" method="post">
-    <input type="text" name="text" placeholder="Enter verbal component" required />
-  <select name="language" required>
-  <option value="">Select language</option>
-  <option value="english">English</option>
-  <option value="french">French</option>
-  <option value="spanish">Spanish</option>
-  <option value="chinese">Chinese</option>
-  <option value="japanese">Japanese</option>
-</select>
+<img src="{{ url_for('static', filename='logo_corvi.PNG') }}" class="icon"/>
+<h3> Helm of Translating language 0.2 </h3>
+<form action="/" method="post">
+    <input type="text" name="text" placeholder="Enter verbal component" required/>
+    <select name="language" required>
+        <option value="">Select language</option>
+        <option value="english">English</option>
+        <option value="french">French</option>
+        <option value="spanish">Spanish</option>
+        <option value="chinese">Chinese</option>
+        <option value="japanese">Japanese</option>
+    </select>
 
     <input type="submit" value="Cast Translate Language" />
   </form>

@@ -96,3 +96,37 @@ select:focus {
   box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.25);
 }
 
+.flashes {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flashes li {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.flashes li.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.flashes li.error {
+    background-color: #f44336;
+    color: white;
+}
+
+.flashes li.warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+.flashes li.info {
+    background-color: #2196F3;
+    color: white;
+}
+

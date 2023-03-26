@@ -1,13 +1,14 @@
 import os
 
 import pyperclip
-from flask import Flask, redirect, render_template, request, url_for, jsonify
+from flask import Flask, redirect, render_template, request, url_for, jsonify, flash
 import openai
 
 from translator import OpenAiTranslator
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
+app.secret_key = "supersecretkey"
 
 
 @app.route("/", methods=("GET", "POST"))
@@ -22,7 +23,6 @@ def index():
             model="{model}".format(model=translator.model),
             messages=translation,
         )
-        # response['choices'][0]['message']['content']
 
         return redirect(url_for("index", result=response.choices[0].message.content))
 
@@ -33,5 +33,7 @@ def index():
 @app.route('/copy', methods=['POST'])
 def copy():
     if request.method == 'POST':
-        form_value = request.form['my-input']
+        form_value = request.form['result']
         pyperclip.copy(form_value)
+        flash('Copied!', 'success')
+        return redirect(url_for('index'))

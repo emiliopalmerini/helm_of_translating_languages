@@ -18,34 +18,25 @@
         <option value="english">English</option>
         <option value="french">French</option>
         <option value="spanish">Spanish</option>
-        <option value="chinese">Chinese</option>
-        <option value="japanese">Japanese</option>
+        <option value="german">German</option>
     </select>
     <input type="submit" value="Cast Translate Language"/>
 </form>
 {% if result %}
-    <form class="result" id="my-form">
+    <form class="result" id="my-form" method="POST" action="{{ url_for('copy') }}">
         <input type="text" name="result" id="my-result" value="{{ result }}"/>
-        <button type="button" id="copy-btn">Copy to Grimoire</button>
     </form>
-
-    <script>
-        const copyBtn = document.getElementById('copy-btn');
-        copyBtn.addEventListener('click', async () => {
-            const resultEl = document.getElementById("my-result");
-            try {
-                await navigator.clipboard.writeText(resultEl.value);
-                const formData = new FormData(document.querySelector('form'));
-                const response = await fetch('/copy', {
-                    method: 'POST',
-                    body: formData
-                });
-            } catch (err) {
-                console.error('Failed to copy form value: ', err);
-            }
-        });
-    </script>
-
+    <button type="submit" form="my-form">Copy to Grimoire</button>
 {% endif %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flashes">
+      {% for message in messages %}
+        <div class="flash {{ message[1] }}">{{ message[0] }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
 
 </body>

@@ -21,11 +21,31 @@
         <option value="chinese">Chinese</option>
         <option value="japanese">Japanese</option>
     </select>
+    <input type="submit" value="Cast Translate Language"/>
+</form>
+{% if result %}
+    <form class="result" id="my-form">
+        <input type="text" name="result" id="my-result" value="{{ result }}"/>
+        <button type="button" id="copy-btn">Copy to Grimoire</button>
+    </form>
 
-    <input type="submit" value="Cast Translate Language" />
-  </form>
-  {% if result %}
-<div class="result">{{ result }}</div>
+    <script>
+        const copyBtn = document.getElementById('copy-btn');
+        copyBtn.addEventListener('click', async () => {
+            const resultEl = document.getElementById("my-result");
+            try {
+                await navigator.clipboard.writeText(resultEl.value);
+                const formData = new FormData(document.querySelector('form'));
+                const response = await fetch('/copy', {
+                    method: 'POST',
+                    body: formData
+                });
+            } catch (err) {
+                console.error('Failed to copy form value: ', err);
+            }
+        });
+    </script>
+
 {% endif %}
 
 </body>

@@ -1,5 +1,7 @@
 import os
-from flask import Flask, redirect, render_template, request, url_for
+
+import pyperclip
+from flask import Flask, redirect, render_template, request, url_for, jsonify
 import openai
 
 from translator import OpenAiTranslator
@@ -26,3 +28,10 @@ def index():
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
+
+
+@app.route('/copy', methods=['POST'])
+def copy():
+    if request.method == 'POST':
+        form_value = request.form['my-input']
+        pyperclip.copy(form_value)
